@@ -81,9 +81,9 @@ scripts/stress.sh springboot3/target/springboot3.jar
 For each test, you should see output like 
 
 ```shell
-  6001 requests in 30.002s,   4.84MB read
-Requests/sec: 200.02
-Transfer/sec: 165.29kB
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     9.58ms    6.03ms  94.90ms   85.57%
+    Req/Sec   9936.90   2222.61  10593.00     95.24
 ```
 ### Acceptable: Run on a single machine, with solid automation and detailed output
 
