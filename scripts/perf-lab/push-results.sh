@@ -46,7 +46,7 @@ push_results() {
 
   # Check out the repo
   echo "Cloning https://github.com/quarkusio/benchmarks.git into ${tempdir}"
-  git clone https://quarkusbot:${TOKEN}@github.com/quarkusio/benchmarks.git
+  git clone https://quarkusbot:${GITHUB_TOKEN}@github.com/quarkusio/benchmarks.git
 
   # cd into the directory
   cd benchmarks
