@@ -24,6 +24,9 @@ scripts:
                 command: mkdir /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/
             - script: sudo
               with:
+                command: chown -R ${{env.USER}} /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/
+            - script: sudo
+              with:
                 command: echo "+cpu" >>  /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/cgroup.subtree_control
             - script: sudo
               with:
