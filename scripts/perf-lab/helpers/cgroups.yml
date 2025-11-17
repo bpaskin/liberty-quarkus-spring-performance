@@ -9,7 +9,7 @@ scripts:
           then:
             - script: sudo
               with:
-                command: echo ${{SHELL_PID}} >> /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/tasks/cgroup.procs
+                command: sh -c 'echo ${{SHELL_PID}} >> /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/tasks/cgroup.procs'
           else:
             - log: "Non-Linux OS doesn't support cgroups"
     - signal: CGROUP_${{CGROUP_NAME:perf-cgroup}}_DONE
@@ -40,14 +40,14 @@ scripts:
                   then:
                     - script: sudo
                       with:
-                        command: echo ${{CGROUP_CPUSET}} > /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/tasks/cpuset.cpus
+                        command: sh -c 'echo ${{CGROUP_CPUSET}} > /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/tasks/cpuset.cpus'
             - read-state: ${{CGROUP_MAX_MEM}}
               then:
                 - regex: .+
                   then:
                     - script: sudo
                       with:
-                        command: echo ${{CGROUP_MAX_MEM}} >  /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/tasks/memory.max
+                        command: sh -c 'echo ${{CGROUP_MAX_MEM}} >  /sys/fs/cgroup/${{CGROUP_NAME:perf-cgroup}}/tasks/memory.max'
           else:
             - log: "Non-Linux OS doesn't support cgroups"
 
