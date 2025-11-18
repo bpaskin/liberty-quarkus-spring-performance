@@ -45,12 +45,11 @@ scripts:
     - sleep: ${{delay:0}}
     - sh: >
         bin/asprof 
-        -d ${{duration__10}} 
-        -f /tmp/flamegraph.${{suffix__html}} 
-        -o ${{format__flamegraph}} 
-        -e ${{events__cpu}} 
-        ${{="${{enableTotal __ }}".toLowerCase() == "true" ? "--total" : ""}} 
-        --title ${{title__async-profiler}} 
+        -d ${{duration:10}} 
+        -f ${{REPO_DIR}}/logs/flamegraph.${{suffix:html}} 
+        -o ${{format:flamegraph}} 
+        -e ${{events:cpu}} 
+        ${{="${{enableTotal : }}".toLowerCase() == "true" ? "--total" : ""}} 
+        --title ${{title:async-profiler}} 
         ${{pid}}
-      separator: __
-    - download: /tmp/flamegraph.${{suffix:html}}
+    - download: ${{REPO_DIR}}/logs/flamegraph.${{suffix:html}}
