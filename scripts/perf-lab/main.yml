@@ -461,8 +461,8 @@ roles:
       - stop-test-services
     run-scripts:
       - run-tests
+      - download-metrics
     cleanup-scripts:
       - stop-timestamp
-      - download-metrics
       - stop-test-services
 #      - cleanup-env
