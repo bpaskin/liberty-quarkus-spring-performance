@@ -53,41 +53,45 @@ The script also has 3 dependencies that need to be resolved before it can be run
 
 ### Options
 
-| Option | Parameter                        | Description                                                                                                                                                                                   | Default                                                           |
-|--------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
- `-a`   | `<JVM_ARGS>`                     | Any JVM args to be passed to the apps                                                                                                                                                         | `main`                                                            |
-| `-b`   | `<SCM_REPO_BRANCH>`              | The branch in the SCM repository                                                                                                                                                              | `main`                                                            |
-| `-c`   | `<CGROUPS_CPUS>`                 | Constrain to certain CPUs via [cgroups](https://en.wikipedia.org/wiki/Cgroups) (comma-separated list, e.g., `0,2,4,6,8,10,12,14`). Ignored if running on a host that doesn't support cgroups. |                                                                   |
-| `-d`   |                                  | Purge/drop OS filesystem caches between iterations                                                                                                                                            |                                                                   |
-| `-e`   | <EXTRA_QDUP_ARGS>                | Any extra arguments that need to be passed to qDup ahead of the qDup scripts.<br/> - **NOTE:** This is an advanced option. Make sure you know what you are doing when using it.               |                                                                   |
-| `-f`   | <OUTPUT_DIR>                     | The directory containing the run output                                                                                                                                                       | `/tmp`                                                            |
-| `-g`   | `<GRAALVM_VERSION>`              | The GraalVM version to use for native tests (from SDKMAN)                                                                                                                                     | `25-graalce`                                                      |
-| `-h`   | `<HOST>`                         | The HOST to run benchmarks on. Use `LOCAL` to run on the local machine                                                                                                                        | `LOCAL`                                                           |
-| `-i`   | `<ITERATIONS>`                   | The number of iterations to run each test. The output is the average across all iterations.                                                                                                   | `3`                                                               |
-| `-j`   | `<JAVA_VERSION>`                 | The Java version to use (from SDKMAN)                                                                                                                                                         | `25-tem`                                                          |
-| `-l`   | `<SCM_REPO_URL>`                 | The SCM repository URL                                                                                                                                                                        | `https://github.com/quarkusio/spring-quarkus-perf-comparison.git` |
-| `-m`   | `<CGROUPS_MAX_MEMORY>`           | Constrain available memory via [cgroups](https://en.wikipedia.org/wiki/Cgroups). Ignored if running on a host that doesn't support cgroups.                                                   | `14G`                                                             |
-| `-n`   | `<NATIVE_QUARKUS_BUILD_OPTIONS>` | Native build options passed to Quarkus native build process                                                                                                                                   |                                                                   |
-| `-o`   | `<NATIVE_SPRING_BUILD_OPTIONS>`  | Native build options passed to Spring native build process                                                                                                                                    |                                                                   |
-| `-p`   | `<PROFILER>`                     | Enable profiling with async profiler. Values: `none`, `jfr`, `flamegraph`                                                                                                                     | `none`                                                            |
-| `-q`   | `<QUARKUS_VERSION>`              | The Quarkus version to use. **Recommended to set manually**                                                                                                                                   | Version from pom.xml                                              |
-| `-r`   | `<RUNTIMES>`                     | Comma-separated list of runtimes to test                                                                                                                                                      | All runtimes                                                      |
-| `-s`   | `<SPRING_BOOT_VERSION>`          | The Spring Boot version to use. **Recommended to set manually**                                                                                                                               | Version from pom.xml                                              |
-| `-t`   | `<TESTS_TO_RUN>`                 | Comma-separated list of tests to run                                                                                                                                                          | All tests                                                         |
-| `-u`   | `<USER>`                         | The user on `<HOST>` to run the benchmark (required if HOST is not LOCAL)                                                                                                                     |                                                                   |
-| `-v`   | `<JVM_MEMORY>`                   | JVM Memory settings (e.g., `-Xmx`, `-Xmn`, `-Xms`)                                                                                                                                            |                                                                   |
-| `-w`   | `<WAIT_TIME>`                    | Wait time in seconds for operations like application startup                                                                                                                                  | `20`                                                              |
-| `-x`   | `<CMD_PREFIX>`                   | Command prefix for running tests (e.g., `taskset --cpu-list 0-3` to restrict cores)                                                                                                           | -                                                                 |
+| Option                           | Parameter                     | Description                                                                                                                                                                                                             | Default                                                                                                              |
+|----------------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| `--cpus`                         | `<CPUS>`                      | How many CPUs to allocate to the application                                                                                                                                                                            | `4`                                                                                                                  |
+| `--drop-fs-caches`               |                               | Purge/drop OS filesystem caches between iterations                                                                                                                                                                      |                                                                                                                      |
+| `--extra-qdup-args`              | `<EXTRA_QDUP_ARGS>`           | Any extra arguments that need to be passed to qDup ahead of the qDup scripts<br/>**NOTE:** This is an advanced option. Make sure you know what you are doing when using it.                                             |                                                                                                                      |
+| `--graalvm-version`              | `<GRAALVM_VERSION>`           | The GraalVM version to use if running any native tests (from SDKMAN)                                                                                                                                                    | `25.0.1-graalce`                                                                                                     |
+| `--host`                         | `<HOST>`                      | The HOST to run the benchmarks on<br/>`LOCAL` is a keyword that can be used to run everything on the local machine                                                                                                      | `LOCAL`                                                                                                              |
+| `--iterations`                   | `<ITERATIONS>`                | The number of iterations to run each test                                                                                                                                                                               | `3`                                                                                                                  |
+| `--java-version`                 | `<JAVA_VERSION>`              | The Java version to use (from SDKMAN)                                                                                                                                                                                   | `25.0.1-tem`                                                                                                         |
+| `--jvm-args`                     | `<JVM_ARGS>`                  | Any runtime JVM args to be passed to the apps                                                                                                                                                                           |                                                                                                                      |
+| `--jvm-memory`                   | `<JVM_MEMORY>`                | JVM Memory setting (i.e. -Xmx -Xmn -Xms)                                                                                                                                                                                |                                                                                                                      |
+| `--native-quarkus-build-options` | `<NATIVE_QUARKUS_OPTS>`       | Native build options to be passed to Quarkus native build process                                                                                                                                                       |                                                                                                                      |
+| `--native-spring3-build-options` | `<NATIVE_SPRING3_OPTS>`       | Native build options to be passed to Spring 3.x native build process                                                                                                                                                    |                                                                                                                      |
+| `--native-spring4-build-options` | `<NATIVE_SPRING4_OPTS>`       | Native build options to be passed to Spring 4.x native build process                                                                                                                                                    |                                                                                                                      |
+| `--output-dir`                   | `<OUTPUT_DIR>`                | The directory containing the run output                                                                                                                                                                                 | `/tmp`                                                                                                               |
+| `--profiler`                     | `<PROFILER>`                  | Enable profiling with async profiler<br/>Accepted values: `none`, `jfr`, `flamegraph`                                                                                                                                   | `none`                                                                                                               |
+| `--quarkus-build-config-args`    | `<QUARKUS_BUILD_CONFIG_ARGS>` | Quarkus app configuration properties fixed at build time                                                                                                                                                                |                                                                                                                      |
+| `--quarkus-version`              | `<QUARKUS_VERSION>`           | The Quarkus version to use<br/>**NOTE:** Its a good practice to set this manually to ensure proper version                                                                                                              | Whatever version is set in pom.xml of the Quarkus app                                                                |
+| `--repo-branch`                  | `<SCM_REPO_BRANCH>`           | The branch in the SCM repo                                                                                                                                                                                              | `main`                                                                                                               |
+| `--repo-url`                     | `<SCM_REPO_URL>`              | The SCM repo url                                                                                                                                                                                                        | `https://github.com/quarkusio/spring-quarkus-perf-comparison.git`                                                    |
+| `--runtimes`                     | `<RUNTIMES>`                  | The runtimes to test, separated by commas<br/>Accepted values (1 or more of): `quarkus3-jvm`, `quarkus3-native`, `spring3-jvm`, `spring3-jvm-aot`, `spring3-native`, `spring4-jvm`, `spring4-jvm-aot`, `spring4-native` | `quarkus3-jvm,quarkus3-native,spring3-jvm,spring3-jvm-aot,spring3-native,spring4-jvm,spring4-jvm-aot,spring4-native` |
+| `--springboot3-version`          | `<SPRING_BOOT3_VERSION>`      | The Spring Boot 3.x version to use<br/>**NOTE:** Its a good practice to set this manually to ensure proper version                                                                                                      | Whatever version is set in pom.xml of the Spring Boot 3 app                                                          |
+| `--springboot4-version`          | `<SPRING_BOOT4_VERSION>`      | The Spring Boot 4.x version to use<br/>**NOTE:** Its a good practice to set this manually to ensure proper version                                                                                                      | Whatever version is set in pom.xml of the Spring Boot 4 app                                                          |
+| `--tests`                        | `<TESTS_TO_RUN>`              | The tests to run, separated by commas<br/>Accepted values (1 or more of): `test-build`, `measure-build-times`, `measure-time-to-first-request`, `measure-rss`, `run-load-test`                                          | `test-build,measure-build-times,measure-time-to-first-request,measure-rss,run-load-test`                             |
+| `--user`                         | `<USER>`                      | The user on `<HOST>` to run the benchmark                                                                                                                                                                               |                                                                                                                      |
+| `--wait-time`                    | `<WAIT_TIME>`                 | Wait time (in seconds) to wait for things like application startup                                                                                                                                                      | `20`                                                                                                                 |
 
 ### Available Runtimes
 
 The `-r` option accepts one or more of the following values (comma-separated):
 
-- `quarkus3-jvm` - [Quarkus 3](../quarkus3) on JVM
-- `quarkus3-native` - [Quarkus 3](../quarkus3) native executable
-- `spring3-jvm` - [Spring Boot 3](../springboot3) on JVM
-- `spring3-jvm-aot` - [Spring Boot 3](../springboot3) on JVM with AOT compilation
-- `spring3-native` - [Spring Boot 3](../springboot3) native executable
+- `quarkus3-jvm` - [Quarkus 3](../../quarkus3) on JVM
+- `quarkus3-native` - [Quarkus 3](../../quarkus3) native executable
+- `spring4-jvm` - [Spring Boot 4](../../springboot4) on JVM
+- `spring4-jvm-aot` - [Spring Boot 3](../../springboot4) on JVM with AOT compilation
+- `spring4-native` - [Spring Boot 3](../../springboot4) native executable
+- `spring3-jvm` - [Spring Boot 3](../../springboot3) on JVM
+- `spring3-jvm-aot` - [Spring Boot 3](../../springboot3) on JVM with AOT compilation
+- `spring3-native` - [Spring Boot 3](../../springboot3) native executable
 
 **Default:** All runtimes are tested
 
@@ -151,41 +155,41 @@ If you examine the output directory:
 Runs [all the tests](#available-tests) against [all the runtimes](#available-runtimes) using Quarkus version `3.28.4` and Spring Boot version `3.5.6`.
 
 ```shell
-./run-benchmarks.sh -q 3.28.4 -s 3.5.6
+./run-benchmarks.sh --quarkus-version 3.28.4 --springboot3-version 3.5.6
 ```
 
 ### JVM tests only
 
-Runs [all the tests](#available-tests) only the JVM runtimes using Quarkus version `3.28.4` and Spring Boot version `3.5.6`.
+Runs [all the tests](#available-tests) only the JVM runtimes using Quarkus version `3.30.5` and Spring Boot versions `3.5.9` & `4.0.1`.
 
 ```shell
-./run-benchmarks.sh -q 3.28.4 -s 3.5.6 -r 'quarkus3-jvm,spring3-jvm'
+./run-benchmarks.sh --quarkus-version 3.30.5 --springboot3-version 3.5.9 --springboot4-version 4.0.1 --runtimes 'quarkus3-jvm,spring4-jvm,spring3-jvm'
 ```
 
-### Run all of the benchmarks on a remote host from a different fork
+### Run all the benchmarks on a remote host from a different fork
 
 Runs [all the tests](#available-tests) against [all the runtimes](#available-runtimes) using Quarkus version `3.28.4` and Spring Boot version `3.5.6` on a remote host, while pulling the benchmarks from the `open-benchmarks` branch on the https://github.com/edeandrea/spring-quarkus-perf-comparison.git repo, and running 5 iterations of each test.
 
 ```shell
  ./run-benchmarks.sh \
-    -u <REMOTE_USER> \
-    -h <REMOTE_HOST> \
-    -q 3.28.4 \
-    -s 3.5.6 \
-    -t 'measure-build-times,measure-time-to-first-request,measure-rss,run-load-test' \
-    -r 'quarkus3-jvm,quarkus3-native,spring3-jvm,spring3-jvm-aot,spring3-native' \
-    -i 5 \
-    -l https://github.com/edeandrea/spring-quarkus-perf-comparison.git \
-    -b open-benchmarks \
-    -d
+    --user <REMOTE_USER> \
+    --host <REMOTE_HOST> \
+    --quarkus-version 3.28.4 \
+    --springboot3-version 3.5.6 \
+    --tests 'measure-build-times,measure-time-to-first-request,measure-rss,run-load-test' \
+    --runtimes 'quarkus3-jvm,quarkus3-native,spring4-jvm,spring4-jvm-aot,spring4-native,spring3-jvm,spring3-jvm-aot,spring3-native' \
+    --iterations 5 \
+    --repo-url https://github.com/<some_user>/spring-quarkus-perf-comparison.git \
+    --repo-branch another-branch \
+    --drop-fs-caches
 ```
 
 
 ## Notes
 
-- **Version Specification:** It is strongly recommended to explicitly set both `-q` (Quarkus version) and `-s` (Spring Boot version) to ensure consistent and reproducible benchmarks.
-- **Remote Execution:** When using a HOST other than `LOCAL`, the `-u` (USER) parameter is required.
-- **Resource Constraints:** The `-c` (CPU constraints) and `-m` (memory constraints) options use cgroups to limit resources available to the benchmarked applications.
+- **Version Specification:** It is strongly recommended to explicitly set the Quarkus and Spring Boot versions to ensure consistent and reproducible benchmarks.
+- **Remote Execution:** When using a HOST other than `LOCAL`, the `--user` (USER) parameter is required.
+- **Resource Constraints:** The `--cpus` (CPU constraints) and `--jvm-memory` (memory constraints) options use cgroups to limit resources available to the benchmarked applications.
 - **Profiling:** When profiling is enabled, async profiler will be used to generate JFR files or flamegraphs depending on the selected option.
 
 ## Exit Codes
