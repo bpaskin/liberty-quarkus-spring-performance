@@ -36,6 +36,16 @@ validate_inputs() {
   fi
 }
 
+sanitize_results() {
+  echo "Sanitizing results to remove sensitive domain information"
+
+  # Find all files in resultsDir and replace redhat.com and ibm.com patterns
+  find ${resultsDir} -type f -exec sed -i \
+    -e 's/[^[:space:]]*redhat\.com/*****/g' \
+    -e 's/[^[:space:]]*ibm\.com/*****/g' \
+    {} +
+}
+
 push_results() {
   # Setup GH cli
   gh auth login --with-token <<< "${GITHUB_TOKEN}"
@@ -66,6 +76,9 @@ push_results() {
   # Copy the metrics.json to latest
   cp -f ${resultsDir}/metrics.json ${jobResultsDir}/results-latest.json
   cp -f ${resultsDir}/metrics.json results/${jobName}-latest.json
+
+  # Sanitize the results
+  sanitize_results
 
   # Add things to git
   git config --local user.email quarkusio+quarkusbot@gmail.com
