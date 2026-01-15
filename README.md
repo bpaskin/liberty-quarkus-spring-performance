@@ -164,7 +164,7 @@ To produce charts from the output, you can use the scripts at https://github.com
 ### The best: Run tests in a controlled lab
 
 These tests are run on a regular schedule in Red Hat/IBM performance labs.
-[The scripts](https://github.com/quarkusio/spring-quarkus-perf-comparison/tree/main/scripts/perf-lab) are viewable in this repository.
+[The scripts](https://github.com/quarkusio/spring-quarkus-perf-comparison/tree/main/scripts/perf-lab) are viewable in this repository. The controlled environment and the scripts ensure workloads are isolated properly across cpus and memory without any contention between components (application under test, load generator, database, etc).
 
 #### Published results 
 
