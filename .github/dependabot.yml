@@ -1,35 +1,99 @@
 version: 2
 updates:
-  - package-ecosystem: maven
-    directory: /
-    open-pull-requests-limit: 20
-    schedule:
-      interval: daily
-    labels:
-      - "version-upgrade"
-
   - package-ecosystem: github-actions
     directory: /
-    open-pull-requests-limit: 20
     schedule:
       interval: daily
     labels:
       - "version-upgrade"
 
-# OOTB branch
   - package-ecosystem: maven
-    directory: /
-    target-branch: ootb
-    open-pull-requests-limit: 20
+    directory: /quarkus3
     schedule:
       interval: daily
     labels:
       - "version-upgrade"
 
+  - package-ecosystem: maven
+    directory: /quarkus3-spring-compatibility
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  - package-ecosystem: maven
+    directory: /quarkus3-virtual
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  - package-ecosystem: maven
+    directory: /springboot3
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+    ignore:
+      - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
+        update-types:
+          - "version-update:semver-major"
+
+  - package-ecosystem: maven
+    directory: /springboot4
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  # OOTB branch
   - package-ecosystem: github-actions
     directory: /
     target-branch: ootb
-    open-pull-requests-limit: 20
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  - package-ecosystem: maven
+    directory: /quarkus3
+    target-branch: ootb
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  - package-ecosystem: maven
+    directory: /quarkus3-spring-compatibility
+    target-branch: ootb
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  - package-ecosystem: maven
+    directory: /quarkus3-virtual
+    target-branch: ootb
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+
+  - package-ecosystem: maven
+    directory: /springboot3
+    target-branch: ootb
+    schedule:
+      interval: daily
+    labels:
+      - "version-upgrade"
+    ignore:
+      - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
+        update-types:
+          - "version-update:semver-major"
+
+  - package-ecosystem: maven
+    directory: /springboot4
+    target-branch: ootb
     schedule:
       interval: daily
     labels:
