@@ -13,6 +13,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "io.quarkus.platform:*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: maven
     directory: /quarkus3-spring-compatibility
@@ -20,6 +24,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "io.quarkus.platform:*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: maven
     directory: /quarkus3-virtual
@@ -27,6 +35,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "io.quarkus.platform:*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: maven
     directory: /springboot3
@@ -45,6 +57,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
+        update-types:
+          - "version-update:semver-major"
 
   # OOTB branch
   - package-ecosystem: github-actions
@@ -62,6 +78,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "io.quarkus.platform:*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: maven
     directory: /quarkus3-spring-compatibility
@@ -70,6 +90,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "io.quarkus.platform:*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: maven
     directory: /quarkus3-virtual
@@ -78,6 +102,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "io.quarkus.platform:*"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: maven
     directory: /springboot3
@@ -98,3 +126,7 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    ignore:
+      - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
+        update-types:
+          - "version-update:semver-major"
