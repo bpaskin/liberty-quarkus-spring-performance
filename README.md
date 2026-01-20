@@ -171,14 +171,14 @@ These tests are run on a regular schedule in Red Hat/IBM performance labs.
 The results are published to https://github.com/quarkusio/benchmarks/tree/main/results/spring-quarkus-perf-comparison, and also available in an internal [Horreum](https://github.com/Hyperfoil/Horreum) instance. 
 [Charts of the results](https://github.com/quarkusio/benchmarks/tree/main/images/spring-quarkus-perf-comparison) are also available. The latest results are shown below.
 
-![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/results-latest-tuned-throughput-light.svg#gh-light-mode-only)
-![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/results-latest-tuned-throughput-dark.svg#gh-dark-mode-only)
+![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/tuned/results-latest-tuned-throughput-light.svg#gh-light-mode-only)
+![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/tuned/results-latest-tuned-throughput-dark.svg#gh-dark-mode-only)
 
-![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/results-latest-tuned-boot-and-first-response-time-light.svg#gh-light-mode-only)
-![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/results-latest-tuned-boot-and-first-response-time-dark.svg#gh-dark-mode-only)
+![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/tuned/results-latest-tuned-boot-and-first-response-time-light.svg#gh-light-mode-only)
+![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/tuned/results-latest-tuned-boot-and-first-response-time-dark.svg#gh-dark-mode-only)
 
-![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/results-latest-tuned-memory-rss-light.svg#gh-light-mode-only)
-![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/results-latest-tuned-memory-rss-dark.svg#gh-dark-mode-only)
+![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/tuned/results-latest-tuned-memory-rss-light.svg#gh-light-mode-only)
+![](https://github.com/quarkusio/benchmarks/blob/main/images/spring-quarkus-perf-comparison/tuned/results-latest-tuned-memory-rss-dark.svg#gh-dark-mode-only)
 
 ## Further reading 
 
