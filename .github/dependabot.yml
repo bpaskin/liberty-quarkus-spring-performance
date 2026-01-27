@@ -13,6 +13,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "io.quarkus.platform:*"
         update-types:
@@ -24,6 +28,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "io.quarkus.platform:*"
         update-types:
@@ -35,6 +43,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "io.quarkus.platform:*"
         update-types:
@@ -46,6 +58,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
         update-types:
@@ -57,6 +73,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
         update-types:
@@ -78,6 +98,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "io.quarkus.platform:*"
         update-types:
@@ -90,6 +114,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "io.quarkus.platform:*"
         update-types:
@@ -102,6 +130,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "io.quarkus.platform:*"
         update-types:
@@ -114,6 +146,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
         update-types:
@@ -126,6 +162,10 @@ updates:
       interval: daily
     labels:
       - "version-upgrade"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "org.springframework.boot:spring-boot-starter-parent"
         update-types:
