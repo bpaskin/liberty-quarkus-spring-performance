@@ -20,6 +20,9 @@ Here are the principles we used when making implementation choices:
 - **Easy to try at home**
     - Running measurements should be easy for a non-expert to do with a minimum of infrastructure setup, and it should also be rigorous in terms of performance best practices.
     - These two goals are contradictory, unfortunately! To try and achieve both, we have two versions of the scripts, one optimised for simplicity, and one for methodological soundness.
+- **Testing the framework, not the infrastructure**
+  -  Measurements should be measuring the performance of the frameworks, rather than supporting infrastructure like the database. In practice this means we want the experimental setup to be CPU-bound.
+
 
 ## Goals
 
