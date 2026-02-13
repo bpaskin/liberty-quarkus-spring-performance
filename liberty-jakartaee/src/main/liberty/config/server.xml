@@ -2,7 +2,6 @@
 <server description="Liberty Jakarta EE Server">
 
     <!-- Enable features -->
-    <!-- jakartaee-10.0 includes JPA 3.1 with EclipseLink as the default JPA provider -->
     <featureManager>
         <feature>beanValidation-3.0</feature>
         <feature>cdi-4.0</feature>
@@ -53,4 +52,3 @@
 
 </server>
 
-<!-- Made with Bob -->

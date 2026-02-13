@@ -60,4 +60,3 @@ INSERT INTO store_fruit_prices(store_id, fruit_id, price) VALUES (8, 3, 12.99);
 INSERT INTO store_fruit_prices(store_id, fruit_id, price) VALUES (8, 6, 39.99);
 INSERT INTO store_fruit_prices(store_id, fruit_id, price) VALUES (8, 8, 49.99);
 
--- Made with Bob
