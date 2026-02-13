@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0"
+             xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+    
+    <persistence-unit name="fruitsPU" transaction-type="JTA">
+        <jta-data-source>jdbc/fruitsDB</jta-data-source>
+        
+        <!-- Entity classes -->
+        <class>org.acme.domain.Fruit</class>
+        <class>org.acme.domain.Store</class>
+        <class>org.acme.domain.Address</class>
+        <class>org.acme.domain.StoreFruitPrice</class>
+        <class>org.acme.domain.StoreFruitPriceId</class>
+        
+        <properties>
+            <!-- EclipseLink logging properties -->
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+            
+            <!-- Schema generation - Standard JPA properties -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="jakarta.persistence.schema-generation.create-source" value="metadata"/>
+            <property name="jakarta.persistence.schema-generation.drop-source" value="metadata"/>
+            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/import.sql"/>
+            
+            <!-- EclipseLink target database -->
+            <property name="eclipselink.target-database" value="PostgreSQL"/>
+            
+            <!-- Connection pool is managed by Liberty DataSource in server.xml -->
+            
+            <!-- EclipseLink weaving (optional - for lazy loading optimization) -->
+            <property name="eclipselink.weaving" value="true"/>
+            
+            <!-- Configure EclipseLink to use WebSphere Liberty platform -->
+            <property name="eclipselink.target-server" value="WebSphere_Liberty"/>
+        </properties>
+    </persistence-unit>
+    
+</persistence>
+
+<!-- Made with Bob -->
