@@ -22,12 +22,14 @@ public class StoreFruitPrice {
 
   @MapsId("storeId")
   @ManyToOne(fetch = FetchType.EAGER, optional = false)
-  @JoinColumn(name = "store_id", nullable = false)
+  @JoinColumn(name = "store_id", nullable = false,
+              foreignKey = @jakarta.persistence.ForeignKey(name = "fk_store_fruit_prices_store_id"))
   private Store store;
 
   @MapsId("fruitId")
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "fruit_id", nullable = false)
+  @JoinColumn(name = "fruit_id", nullable = false,
+              foreignKey = @jakarta.persistence.ForeignKey(name = "fk_store_fruit_prices_fruit_id"))
   private Fruit fruit;
 
   @NotNull
